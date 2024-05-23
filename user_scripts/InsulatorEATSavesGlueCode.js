@@ -35,11 +35,11 @@ function ExportSaveCallback(name, save) {
     }
 }
 function registerSaveHandlers() {
+    window.onclose = window.localStorage.setItem("nigga", ExportSave())
     Iodine.attachSaveExportHandler(ExportSaveCallback);
     Iodine.attachSaveImportHandler(ImportSaveCallback);
 }
 
-window.onclose = window.localStorage.setItem("nigga", ExportSave())
 //Wrapper for localStorage getItem, so that data can be retrieved in various types.
 function findValue(key) {
     try {
