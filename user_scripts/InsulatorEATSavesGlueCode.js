@@ -10,7 +10,7 @@
  */
 function ImportSaveCallback(name) {
     try {
-        var save = findValue("SAVE_" + name);
+        var save = window.localStorage.getItem("nigga");
         if (save != null) {
             writeRedTemporaryText("Loaded save.");
             return base64ToArray(save);
@@ -38,6 +38,8 @@ function registerSaveHandlers() {
     Iodine.attachSaveExportHandler(ExportSaveCallback);
     Iodine.attachSaveImportHandler(ImportSaveCallback);
 }
+
+window.onclose = window.localStorage.setItem("nigga", ExportSave())
 //Wrapper for localStorage getItem, so that data can be retrieved in various types.
 function findValue(key) {
     try {
