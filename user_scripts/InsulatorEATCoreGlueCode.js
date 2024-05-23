@@ -95,7 +95,7 @@ window.onload = function () {
     //Initialize the audio:
     registerAudioHandler();
     //Register the save handler callbacks:
-    registerSaveHandlers();
+    registerSaveHandlers(location.hash.substr(1));
     //Hook the GUI controls.
     registerGUIEvents();
     //Enable Sound:

@@ -10,7 +10,7 @@
  */
 function ImportSaveCallback(name) {
     try {
-        var save = window.localStorage.getItem("nigga");
+        var save = window.localStorage.getItem(name);
         if (save != null) {
             writeRedTemporaryText("Loaded save.");
             return base64ToArray(save);
@@ -34,10 +34,10 @@ function ExportSaveCallback(name, save) {
         }
     }
 }
-function registerSaveHandlers() {
-    window.onclose = window.localStorage.setItem("nigga", ExportSave())
+function registerSaveHandlers(name) {
+    window.onclick = window.localStorage.setItem(name, ExportSave())
     Iodine.attachSaveExportHandler(ExportSaveCallback);
-    Iodine.attachSaveImportHandler(ImportSaveCallback);
+    Iodine.attachSaveImportHandler(ImportSaveCallback(name));
 }
 
 //Wrapper for localStorage getItem, so that data can be retrieved in various types.
